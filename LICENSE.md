@@ -1,6 +1,6 @@
 # License
 
-Copyright for portions of Mother's Margins are held by [Joel Dueck, 2023] as part of [The Notepad](https://github.com/otherjoel/thenotepad). All other copyright for Mother's Margins are held by [Tao Hansen, 2023] and are not licensed for reuse, except as noted below:
+Copyright for portions of Goose and Quill are held by [Joel Dueck, 2023] as part of [The Notepad](https://github.com/otherjoel/thenotepad). All other copyright for Goose and Quill are held by [Tao Hansen, 2023] and are not licensed for reuse, except as noted below:
 
 * The *source code* — comprised of all `.rkt` files and `makefile`, plus all `.pp`, `.p`, and `.css` files — is licensed under the MIT license (a copy of which is included below). This allows you to reuse this code in your own projects in any way you like as long as you A) provide attribution to me, and B) don’t hold me liable for anything.
 
