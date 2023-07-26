@@ -1,12 +1,12 @@
 # Goose and Quill
 
-A blog created with [Pollen](https://docs.racket-lang.org/pollen/index.html). The live site is at <https://quill.geese.party>. See `LICENSE` for copyright/licensing information.
+A blog created with [Pollen](https://docs.racket-lang.org/pollen/index.html). The live site is at <https://gooseandquill.blog>. See `LICENSE` for copyright/licensing information.
 
 ## Background
 
 Pollen is really optimized for *books*, where the sections are finite and can be prearranged according to the logic of the subject matter. It takes some extra work to put it to use as a *blog*, which by analogy is a loose sheaf of papers that need constant reshuffling before any use can be made of them.
 
-Nonetheless, it works pretty well as a static blog generator. Pollen comes with no opinions about your site so there's no cruft to clean out or hack around. Pollen also gives me capabilities I can no longer live without — first among which is, it allows you to design your own markup and control how it works, forever. More thoroughly tedious rationale for my design choices will eventually go on the site’s [About page](https://quill.geese.party/about.html).
+Nonetheless, it works pretty well as a static blog generator. Pollen comes with no opinions about your site so there's no cruft to clean out or hack around. Pollen also gives me capabilities I can no longer live without — first among which is, it allows you to design your own markup and control how it works, forever. More thoroughly tedious rationale for my design choices will eventually go on the site’s [About page](https://gooseandquill.blog/about.html).
 
 ## Features
 
@@ -16,7 +16,7 @@ Nonetheless, it works pretty well as a static blog generator. Pollen comes with 
 * Makefile for incremental builds
 * Pollen tags for perma-embedding Tweets in web and PDF output (no JavaScript)
 * Example dynamically generated `index.ptree` — no need to edit every time you add a new post
-* [Semantic line wrapping](https://github.com/worldofgeese/quill.geese.party/commit/d35f0d40d2d1ce9e1f41086c69fe9fa6183af803)
+* [Semantic line wrapping](https://github.com/worldofgeese/gooseandquill.blog/commit/d35f0d40d2d1ce9e1f41086c69fe9fa6183af803)
 
 ## Setting up your own copy
 
