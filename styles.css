@@ -17,19 +17,10 @@
     -ms-font-feature-settings: 'liga' 1;
     font-feature-settings: 'liga' 1;
 }
-.gridded {
-    background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px);
-    background-position: left -1px;
-    background-repeat: repeat;
-    background-size: 24px 24px;
-}
-.gridded body {
-    box-shadow: 1px 0px 0px hsla(200, 100%, 50%, .3), -1px 0px 0px hsla(200, 100%, 50%, .3);
-}
 body {
-    background-color: #fff;
+    background-color: #F4EDE5;
     font-family: -apple-system, 'Helvetica Neue', helvetica, sans-serif;
-    color: #333;
+    color: #8B7355;
     font-size: 0.75em;
     line-height: 1.5em;
     padding: 0 1em;
@@ -85,6 +76,7 @@ ul ul, ol ol, ul ol, ol ul {
     margin-bottom: 0;
 }
 hr {
+    display: none;
     border: 1px solid #ddd;
     /* margin: -1px 0; */
     margin: 3em 0;
@@ -120,7 +112,7 @@ a::after {
     position: relative;
     top: -0.6em;
     font-size:0.6em;
-    color: orange;
+    color: #8B7355;
     font-style: normal;
     line-height: 1em;
 }
@@ -152,7 +144,7 @@ header.main p { margin-bottom: 0; }
 
 header.main a.home {
     text-decoration: none;
-    color: #700;
+    color: #8B7355;
     text-transform: uppercase;
     letter-spacing: .1em;
     font-family: triplicate, monospace;
@@ -204,13 +196,13 @@ nav li:last-child::before, nav li:first-child::before { content: ''; }
 nav li:first-child a:link { padding-left: 0; }
 
 nav li a:hover {
-    /* border-color: #083; */
-    color: #0740e4;
+    border-color: #5E4B3C;
+    color: #8B7355;
 }
 
 footer.main {
     font-family: triplicate, monospace;
-    border-top: solid gray 1px;
+    border-top: solid transparent 1px;
     font-size: 0.666666667em;
     line-height: 2.25em;
     padding: 2.25em 0;
@@ -239,8 +231,8 @@ nav li a.rss {
 }
 
 a.rss:hover {
-    border-color: #083;
-    color: #083;
+    border-color: #5E4B3C;
+    color: #8B7355;
 }
 
 footer a.rss {
@@ -281,7 +273,7 @@ article header h1 a {
 article header h1 a:hover {
     background: #333;
     border-radius: 4px;
-    color: #fefefe;
+    color: #8B7355;
 }
 
 article header p, article header ul {
@@ -337,7 +329,7 @@ figcaption {
     /* text-transform: uppercase; */
     /* letter-spacing: 1px; */
     margin-top: -0.5em;
-    color: gray;
+    color: #7D7D7D;
     text-align: left;
     font-style: italic;
 }
@@ -352,7 +344,7 @@ blockquote:before {
     content: '“';
     font-size: 4em;
     font-weight: bold;
-    color: #ddd;
+    color: #8B7355;
     float: left;
     margin-left: -.7em;
     margin-top: .12em;
@@ -362,7 +354,7 @@ blockquote:before {
     content: '”';
     font-size: 4em;
     font-weight: bold;
-    color: #ddd;
+    color: #8B7355;
     float: right;
     margin-right: -.6em;
     margin-top: -.5em;
@@ -391,8 +383,8 @@ blockquote.tweet footer {
 blockquote.tweet a:link { text-decoration: none; }
 blockquote.tweet a:hover { text-decoration: underline; }
 .twRealName { font-weight: bold; }
-.twScreenName { color: gray; }
-.twScreenName:before { content: " · "; color: #ccc; }
+    color: #7D7D7D;
+    color: #8B7355;
 .twDecoration { display: none; }
 .twContent {
     font-size: 1.3888888888888888em;
@@ -430,7 +422,7 @@ pre.code, article table {
 div.listing-filename {
     font-family: triplicate, monospace;
     font-size: 0.75em;
-    color: #555;
+    color: #8B7355;
     border: solid lightgray 1px;
     background: #eee;
     border-top-left-radius: 3px;
@@ -463,7 +455,7 @@ pre.code {
 
 .noun {
     font-style: italic;
-    color: navy;
+    color: #8B7355;
 }
 
 div.comment-box {
@@ -472,7 +464,7 @@ div.comment-box {
     border-radius: 3px;
     padding: 0 0.5em;
     margin-top: 1.5em;
-    color: #555;
+    color: #8B7355;
 }
 
 div.comment-box:last-of-type {
@@ -510,7 +502,7 @@ dl.topic-list {
 }
 .topic-list dt {
     font-family: triplicate;
-    color: navy;
+    color: #8B7355;
     float: left;
     width: 23%;
     clear: both;
@@ -563,7 +555,7 @@ dl.topic-list {
     font-family: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: .8em;
     line-height: 1.5em;
-    color: gray;
+    color: #7D7D7D;
     vertical-align: baseline;
     position: relative;
 }
@@ -597,7 +589,7 @@ label.margin-toggle:not(.sidenote-number) {
 }
 @media (max-width: 750px) {
     label.margin-toggle {
-        color: red;
+    color: #8B7355;
     }
     label.margin-toggle:not(.sidenote-number) {
         display: inline;

@@ -12,7 +12,6 @@ Nonetheless, it works pretty well as a static blog generator. Pollen comes with 
 
 * An RSS Feed
 * Generates PDF versions of every post
-* Includes “Topics”, a tagging system
 * Makefile for incremental builds
 * Pollen tags for perma-embedding Tweets in web and PDF output (no JavaScript)
 * Example dynamically generated `index.ptree` — no need to edit every time you add a new post
@@ -21,9 +20,11 @@ Nonetheless, it works pretty well as a static blog generator. Pollen comes with 
 ## Setting up your own copy
 
 * You'll need `xelatex` installed and in your `PATH` to generate PDFs. On Mac, installing [MacTeX](https://tug.org/mactex/) is easy and will do the job.
+* `python3` is required for the script that sanitizes file content for HTML display.
 * You'll need to install [Racket](http://racket-lang.org), and the [Pollen package](https://docs.racket-lang.org/pollen/Installation.html)
 * Ideally you'll be on a system that can run Bash scripts and the GNU `make` utility
 * If you do use the included makefile to build the site, you will want to install [HTML5 Tidy](http://www.html-tidy.org) — or remove references to the `tidy` command in the makefile. (**Note:** Many operating systems come with a version of `tidy` pre-installed, but it is usually very out of date and will throw errors when used with this repo.)
+* A `Dockerfile` is included if you wish to serve the blog as a container. For local testing and development, you'll need `podman` or `docker` installed.
 
 Next, just plop all the files from this repository in a folder. Run `make all` from the command line in this folder to build all the static HTML files. Run `make pdfs` to build the PDF versions of each post. (This is done separately because it is so much slower than building the HTML.)
 
@@ -37,13 +38,13 @@ Finally, edit `feed.xml.pp`, filling in your own RSS metadata.
 
 ## Tinkering
 
-Blog posts should be named `your-post-name.poly.pm` and placed  in the `posts/` subfolder. Make sure the first line is `#lang pollen` and use `◊define-meta` to specify the title, publish date, and, optionally, “topics” (basically tags). Check out the existing `.poly.pm` files in that folder for more examples of how things are done.
+Blog posts should be named `your-post-name.poly.pm` and placed  in the `posts/` subfolder. Make sure the first line is `#lang pollen` and use `◊define-meta` to specify the title and publish date. Check out the existing `.poly.pm` files in that folder for more examples of how things are done.
 
 If you really want to customize anything, you will need to [learn all about Pollen](https://docs.racket-lang.org/pollen/index.html)!
 
 As in any Pollen project, you can test-run the site locally by running `raco pollen start` from the project folder. Then browse to `http://localhost:8080` in your browser.
 
-From the project folder, run `make all` to generate all the static HTML files for the site. This is an incremental rebuild: if you’ve built the site once and since done nothing but add a new post, `make all` will build the HTML files for that post, rebuild the Index and Topics HTML pages, and rebuild the RSS feed. If you change any of the Racket code (`.rkt` files) or any of the template files, it will rebuild the HTML files for every single post, depending on what you changed.
+From the project folder, run `make all` to generate all the static HTML files for the site. This is an incremental rebuild: if you’ve built the site once and since done nothing but add a new post, `make all` will build the HTML files for that post, rebuild the Index and rebuild the RSS feed. If you change any of the Racket code (`.rkt` files) or any of the template files, it will rebuild the HTML files for every single post, depending on what you changed.
 
 Use `make zap` to clean out all the generated pages, which will force a complete rebuild next time you do `make all`.
 

@@ -1,4 +1,4 @@
-SHELL = /bin/bash
+SHELL = bash
 
 ### Type 'make' at the prompt to see a list of available tasks.
 
@@ -19,13 +19,13 @@ posts-pdf := $(patsubst %.poly.pm,%.pdf,$(posts-sourcefiles))
 # I want to show off my Pollen source files, so I name them .pollen.html
 posts-sourcelistings := $(patsubst %.poly.pm,%.pollen.html,$(posts-sourcefiles))
 
-other-sourcefiles := books.html.pm about.html.pm
+other-sourcefiles := about.html.pm
 other-html := $(patsubst %.html.pm,%.html,$(other-sourcefiles))
 other-sourcelistings := $(patsubst %.html.pm,%.pollen.html,$(other-sourcefiles))
 
 # --- Rules ---
 
-all: last_html.rebuild $(posts-html) $(posts-sourcelistings) $(other-html) $(other-sourcelistings) index.html feed.xml topics.html
+all: last_html.rebuild $(posts-html) $(posts-sourcelistings) $(other-html) $(other-sourcelistings) index.html feed.xml
 all: ## Update all web content (not PDFs)
 
 # Certain files affect all HTML output files. If these change, I want to do a complete rebuild
@@ -88,12 +88,6 @@ $(other-html): %.html: %.html.pm
 $(other-sourcelistings): util/make-html-source.sh
 $(other-sourcelistings): %.pollen.html: %.html.pm
 	util/make-html-source.sh $< > $@
-
-topics.html: topics.html.pp $(core-fils) $(posts-sourcefiles) pollen-local/tags-html.rkt
-	touch topics.html.pp
-	raco pollen render topics.html.pp
-	tidy -quiet -modify -indent --wrap 0 --tidy-mark no --drop-empty-elements no topics.html || true
-
 
 # --- Additional project tasks ---
 

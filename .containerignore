@@ -1,0 +1,5 @@
+Containerfile
+posts.example
+*.md
+.gitignore
+.git

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILENAME=$1
 
@@ -30,11 +30,11 @@ cat << EOF
           <p>
             <a href="/$(echo $FILENAME | sed -e "s/poly\.pm/html/g;s/html\.pm/html/g")">Back to page</a>
             &middot;
-            <a href="https://github.com/otherjoel/thenotepad/commits/master/$FILENAME">View history on Github</a>
+            <a href="https://github.com/worldofgeese/gooseandquill.blog/commits/master/$FILENAME">View history on GitHub</a>
           </p>
         </header>
         <div class="listing-filename">&#128196; $FILENAME</div>
-        <pre class="fullwidth code sourcebox" style="white-space: pre-wrap;">$(perl -C -MHTML::Entities -pe 'encode_entities($_);' < $FILENAME)</pre>
+        <pre class="fullwidth code sourcebox" style="white-space: pre-wrap;">$(python3 util/encode_entities.py < $FILENAME)</pre>
     </article>
 </body>
 </html>

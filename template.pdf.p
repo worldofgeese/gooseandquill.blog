@@ -30,18 +30,18 @@
     \usepackage{fontspec}
 
     %% Typography defaults
-    \newfontfamily\linenumberfont[Mapping=tex-text]{Fira Mono OT}
+    \newfontfamily\linenumberfont[Mapping=tex-text]{FiraCode-Regular}
 
     \setsansfont[
-        ItalicFont     = HelveticaNeue-Italic,
-        BoldFont       = HelveticaNeue-Bold,
-        BoldItalicFont = HelveticaNeue-BoldItalic]{HelveticaNeue}
-    \setmainfont[Mapping=tex-text,SmallCapsFeatures={LetterSpace=5.5}]{Source Sans Pro}
-    \setmonofont[Scale=0.8]{Triplicate T4c}
+        ItalicFont     = DejaVuSans-Oblique,
+        BoldFont       = DejaVuSans-Bold,
+        BoldItalicFont = DejaVuSans-BoldOblique]{DejaVu Sans}
+    \setmainfont[Mapping=tex-text,SmallCapsFeatures={LetterSpace=5.5}]{Source Sans 3}
+    \setmonofont[Scale=0.8]{Fira Code}
     \newfontfamily\NHLight[
-       ItalicFont     = HelveticaNeue-LightItalic,
-       BoldFont       = HelveticaNeue-UltraLight,
-       BoldItalicFont = HelveticaNeue-UltraLightItalic]{HelveticaNeue-Light}
+       ItalicFont     = DejaVuSans-Oblique,
+       BoldFont       = DejaVuSans-Bold,
+       BoldItalicFont = DejaVuSans-BoldOblique]{DejaVu Sans}
 
     \usepackage{xcolor}
     \definecolor{mygray}{rgb}{0.7,0.7,0.7}
