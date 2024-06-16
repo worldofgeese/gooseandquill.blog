@@ -2,6 +2,7 @@ image: quay.io/lavishleopard/gooseandquill.blog
 
 pages:
   script:
+  - make all  
   - cp -r posts/*.html ./public/
   - cp feed.xml ./public/
   - cp *.html ./public/
