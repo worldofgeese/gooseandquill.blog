@@ -2,6 +2,7 @@ image: quay.io/lavishleopard/gooseandquill.blog:builder
 
 pages:
   script:
+  - mkdir -p ./public/posts/  
   - cp -r /opt/app-root/src/posts/*.html ./public/posts/
   - cp /opt/app-root/src/posts/*.pdf ./public/posts/
   - cp /opt/app-root/src/feed.xml ./public/
