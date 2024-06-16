@@ -1,0 +1,15 @@
+image: quay.io/lavishleopard/gooseandquill.blog
+
+pages:
+  script:
+  - cp -r posts/*.html ./public/
+  - cp feed.xml ./public/
+  - cp *.html ./public/
+  - cp styles.css ./public/
+  - cp -r img ./public/
+  - cp -r css ./public/
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
