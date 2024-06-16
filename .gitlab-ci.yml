@@ -1,14 +1,14 @@
-image: quay.io/lavishleopard/gooseandquill.blog
+image: quay.io/lavishleopard/gooseandquill.blog:builder
 
 pages:
   script:
-  - make all  
-  - cp -r posts/*.html ./public/
-  - cp feed.xml ./public/
-  - cp *.html ./public/
-  - cp styles.css ./public/
-  - cp -r img ./public/
-  - cp -r css ./public/
+  - cp -r /opt/app-root/src/posts/*.html ./public/posts/
+  - cp /opt/app-root/src/posts/*.pdf ./public/posts/
+  - cp /opt/app-root/src/feed.xml ./public/
+  - cp /opt/app-root/src/*.html ./public/
+  - cp /opt/app-root/src/styles.css ./public/
+  - cp -r /opt/app-root/src/img ./public/img/
+  - cp -r /opt/app-root/src/css ./public/css/
   artifacts:
     paths:
     - public
