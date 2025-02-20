@@ -42,13 +42,13 @@ The word "advocate" originates from the Latin ◊emph{advocatus}, meaning "to ca
 
 ◊subsection{DevRel has a monopoly on developer trust}
 
-Developer trust is the foundational element of DevRel. If DevRel breaks this trust—such as by becoming a one-way conduit for top-down messaging that disregards developer interests—it ceases to be valuable. Effective DevRel operates bidirectionally, gathering insights from developers and ensuring leadership decisions are informed by ground-level realities. When developers are included in decision-making, organizations benefit from policies that align with technical realities and minimize disruption to productivity.
+Developer trust is the foundational element of DevRel. If DevRel breaks this trust—such as by becoming a one-way conduit for top-down messaging that disregards developer interests—it ceases to be valuable. Effective DevRel operates bidirectionally, gathering insights from developers and ensuring leadership decisions are informed by ground-level realities. When developers are included in decision-making, organizations benefit from policies that align with technical realities and minimize disruption to productivity.
 
 ◊section{The value of DevRel (at length)}
 
 ◊subsection{A holistic DevRel practice}
 
-A well-functioning DevRel practice recognizes that developer productivity is shaped by more than just tooling. Developers operate within ◊emph{sociotechnical} systems—interdependent networks of people, technology, and organizational structures.
+A well-functioning DevRel practice recognizes that developer productivity is shaped by more than just tooling. Developers operate within ◊emph{sociotechnical}◊margin-note{Sociotechnical systems and boundary spanning roles were introduced to me by Dr. Jabe Bloom, a genius in organization theory. You should drop everything you're doing to watch his talk, ◊link["https://www.youtube.com/watch?v=WtfncGAeXWU"]{Whole Work: Sociotechnicity and DevOps} and then come back to this article after.} systems—interdependent networks of people, technology, and organizational structures.
 
 A strategic DevRel function considers:
 
@@ -76,7 +76,7 @@ DevRel is “user 0”, and the ideal go-between to facilitate collaboration b
 
 A core function of internal DevRel is translating between developers and leadership. Developer advocates are in touch with more developers, more often than anyone in your business. The fact they know more about how each developer team is contributing to your business outcomes than anyone else makes them the ideal translation layer between leadership and developers.
 
-If enterprise leaders are put in charge of initiatives with the power to making sweeping impact to how developers deliver software, DevRel is an essential consultant to those leaders.
+If enterprise leaders are put in charge of initiatives with the power to make sweeping impact to how developers deliver software, DevRel is an essential consultant to those leaders.
 
 ◊section{Conclusion}
 
