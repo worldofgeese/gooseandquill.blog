@@ -70,6 +70,8 @@ All of these questions are best solved by a function both technically proficient
 
 DevRel acts as a critical boundary-spanning function within an organization. Consider security and compliance. When new software policies are created by parts of an organization without developer input, those policies can freeze developer productivity in place and shatter trust.
 
+Boundary spanners do the messy work of bridging two worlds, often speaking two different languages. In the example of software policy, these teams often do not possess their own developers and may make assumptions about impact and architecture unmoored from technical consequence. DevRel, external or internal, has ◊emph{always} done this sort of bridging, and is uniquely suited to this diplomatic task.
+
 DevRel is “user 0”, and the ideal go-between to facilitate collaboration between security teams and developers. A DevRel function might run a limited test of new software policies internally and provide feedback or run ◊link["https://mixtape.swyx.io/episodes/empathy-and-the-hard-way"]{empathy sessions} with other developers.
 
 ◊subsection{Translation layer between leadership and developers}
