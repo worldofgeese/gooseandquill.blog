@@ -20,7 +20,7 @@ Large organizations naturally face challenges in scale and alignment, such as:
 ◊item{Software policies produced without developer input, leading to direct loss of productivity, workarounds, and quiet non-compliance from developers who just want to get work done.}
 }
 
-A well-positioned DevRel function directly addresses these systemic issues by rebuilding broken trust lines between leadership and developers, baking 2-way input loops into policies that effect developer ways of working, and functioning as liasons between business units.
+A well-positioned DevRel function directly addresses these systemic issues by rebuilding broken trust lines between leadership and developers, baking 2-way input loops into policies that affect developer ways of working, and functioning as liasons between business units.
 
 To remain strategically valuable, DevRel must also stop engaging in low-impact activities. A well-rounded DevRel team is a high-leverage function, and its resources should be directed toward initiatives that maximize business and developer outcomes.
 
@@ -68,9 +68,9 @@ All of these questions are best solved by a function both technically proficient
 
 ◊blockquote{"Boundary spanners facilitate the sharing of expertise by linking two or more groups of people separated by hierarchy, location, or function." — Tamara Keszey}
 
-DevRel acts as a critical boundary-spanning function within an organization. A prime example is in security and compliance. When new software policies are created by parts of an organization without developer input, those policies can freeze developer productivity in place and shatter trust.
+DevRel acts as a critical boundary-spanning function within an organization. Consider security and compliance. When new software policies are created by parts of an organization without developer input, those policies can freeze developer productivity in place and shatter trust.
 
-DevRel is “user 0”, and the ideal go-between to facilitate collaboration between security teams and developers. A DevRel function might run a limited test of new software policies and provide feedback or run ◊link["https://mixtape.swyx.io/episodes/empathy-and-the-hard-way"]{empathy sessions} with other developers.
+DevRel is “user 0”, and the ideal go-between to facilitate collaboration between security teams and developers. A DevRel function might run a limited test of new software policies internally and provide feedback or run ◊link["https://mixtape.swyx.io/episodes/empathy-and-the-hard-way"]{empathy sessions} with other developers.
 
 ◊subsection{Translation layer between leadership and developers}
 
