@@ -107,24 +107,10 @@ The following code ◊emph{package definition} puts the HTTP server code we ran 
 (define-module (my-hello-http)
   #:use-module (guix packages)
   #:use-module (guix build-system trivial)
+  #:use-module (gnu packages)
   #:use-module (gnu packages guile)
   #:use-module (guix licenses)
   #:use-module (guix gexp))
-
-(define (generate-server-code guile-path)
-  (string-append "#!" guile-path " -s
-  !#
-  ;;; Hello HTTP server
-  (use-modules (web server))
-
-  (define (my-handler request request-body)
-     (values '((content-type . (text/plain)))
-             \"Hello World!\"))
-
-  (run-server my-handler)"))
-
-(define server-code
-  #~(generate-server-code #$guile-3.0))
 
 (define-public my-hello-http
   (package
@@ -133,18 +119,41 @@ The following code ◊emph{package definition} puts the HTTP server code we ran 
     (source #f)
     (build-system trivial-build-system)
     (arguments
-     (list #:builder
-           #~(begin
-                (let* ((bin-dir (mkdir-p (string-append #$output "/bin")))
-                       (script-file (string-append bin-dir "/my-hello-http")))
-                  (with-output-to-file script-file
-                    (lambda () (display ,server-code)))
-                  (chmod script-file #o755)))))
-    (native-inputs (list guile-3.0))
+     (list
+      #:builder
+      (with-imported-modules '((guix build utils))
+        #~(begin
+            (use-modules (guix build utils))
 
+            (define server-code
+              (string-append "#!" #$guile-3.0 "/bin/guile -s
+!#
+;;; Hello HTTP server that binds to all interfaces
+(use-modules (web server)
+             (web request)
+             (web response)
+             (web uri))
+
+(define (my-handler request request-body)
+  (values (build-response #:code 200
+                          #:headers '((content-type . (text/plain))))
+          \"Hello World!\"))
+
+;; Bind to all interfaces using keyword arguments
+(run-server my-handler 'http '(#:host \"0.0.0.0\" #:port 8080))
+"))
+
+            (let* ((bin-dir (string-append #$output "/bin"))
+                   (script-file (string-append bin-dir "/my-hello-http")))
+
+              (mkdir-p bin-dir)
+              (with-output-to-file script-file
+                (lambda () (display server-code)))
+              (chmod script-file #o755))))))
+    (inputs (list guile-3.0))
     (synopsis "My Hello HTTP server")
-    (description "This package contains a simple HTTP server.")
-    (home-page "https://www.gnu.org/software/guile/")
+    (description "This package contains a simple HTTP server using Guile")
+    (home-page "http://example.com")
     (license gpl3+)))
 
 (specifications->manifest (list "my-hello-http"))
@@ -168,12 +177,12 @@ synopsis: My Hello HTTP server
 description: This package contains a simple HTTP server.
 }
 
-Now, from ◊code{/home/$USER} enter ◊code{guix pack -f docker -m testing/my-hello-http.scm}.
+Now, from ◊code{/home/$USER} enter ◊code{PACK=$(guix pack -f docker --entry-point="/bin/my-hello-http" -m testing/my-hello-http.scm)}.
 
 Voilà! A container image is produced in the ◊link["https://guix.gnu.org/manual/en/html_node/The-Store.html"]{Guix store}. We can load this image directly into Podman like so:
 
 ◊blockcode{
-> podman load < /gnu/store/235f92alcfr7hfjbs8a0snnnrxz3ill1-my-hello-http-docker-pack.tar.gz
+> podman load < $PACK && podman run --rm -p 8080:8080 localhost/my-hello-http:latest
 WARN[0000] "/" is not a shared mount, this could cause issues or missing mounts with rootless containers
 Getting image source signatures
 Copying blob 304960ad3eb5 done
@@ -183,6 +192,6 @@ Storing signatures
 Loaded image: localhost/my-hello-http:latest
 }
 
-Then run it with ◊code{podman run localhost/my-hello-http}.
+Then run it with ◊code{podman run --rm -p 8080:8080 localhost/my-hello-http:latest}.
 
 Now if you visit ◊link["http://localhost:8080/"]{http://localhost:8080} you'll see, again, "Hello, World!".
