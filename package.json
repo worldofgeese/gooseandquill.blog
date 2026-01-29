@@ -1,0 +1,18 @@
+{
+  "name": "gooseandquill.blog",
+  "version": "1.0.0",
+  "description": "A blog created with [Pollen](https://docs.racket-lang.org/pollen/index.html). The live site is at <https://gooseandquill.blog>. See `LICENSE` for copyright/licensing information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:a11y": "playwright test tests/accessibility.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.58.0",
+    "axe-core": "^4.11.1"
+  }
+}

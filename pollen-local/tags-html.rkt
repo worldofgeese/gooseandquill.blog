@@ -139,7 +139,7 @@
 
 (define (html-blockcode attrs text)
   (define filename (attr-val 'filename attrs))
-  (define codeblock `(pre [[class "code"]] ,@text))
+  (define codeblock `(pre [[class "code"] [tabindex "0"]] ,@text))
   (cond
     [(string>? filename "") `(@ (div [[class "listing-filename"]] 128196 " " ,filename) ,codeblock)]
     [else codeblock]))
