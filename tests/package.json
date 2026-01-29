@@ -8,7 +8,6 @@
     "test:ui": "playwright test --ui"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.10.0",
     "@playwright/test": "^1.40.0",
     "axe-playwright": "^2.0.1"
   }

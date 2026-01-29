@@ -5,7 +5,7 @@
  * content was not contained by landmarks is working correctly.
  * 
  * To run this test:
- * 1. npm install @playwright/test @axe-core/playwright
+ * 1. npm install @playwright/test axe-playwright
  * 2. npx playwright test tests/accessibility-landmarks.spec.js
  */
 
@@ -58,18 +58,25 @@ test.describe('Accessibility - Landmarks', () => {
     // If you need to test a specific post, update the URL
     await page.goto('https://gooseandquill.blog/');
     
-    // Find first article link and navigate to it
-    const firstPostLink = page.locator('article h1 a').first();
-    if (await firstPostLink.count() > 0) {
-      await firstPostLink.click();
-      
-      // Verify main landmark exists on post page
-      const main = page.locator('main');
-      await expect(main).toBeVisible();
-      
-      // Verify article is inside main landmark
-      const articleInMain = page.locator('main article');
-      await expect(articleInMain).toBeVisible();
+    // Find all article links
+    const postLinks = page.locator('article h1 a');
+    const linkCount = await postLinks.count();
+    
+    // Skip test if no posts exist
+    if (linkCount === 0) {
+      test.skip();
+      return;
     }
+    
+    // Navigate to first post
+    await postLinks.first().click();
+    
+    // Verify main landmark exists on post page
+    const main = page.locator('main');
+    await expect(main).toBeVisible();
+    
+    // Verify article is inside main landmark
+    const articleInMain = page.locator('main article');
+    await expect(articleInMain).toBeVisible();
   });
 });
