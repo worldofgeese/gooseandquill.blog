@@ -10,7 +10,7 @@ To run the accessibility tests:
 npm test
 ```
 
-Or specifically:
+Or, specifically:
 
 ```bash
 npm run test:a11y
