@@ -36,9 +36,9 @@ function parseRgb(rgbString) {
 
 test.describe('Color Contrast Accessibility', () => {
   test('home link should meet WCAG 2.1 AA contrast ratio of 4.5:1', async ({ page }) => {
-    // Note: This test requires the site to be running locally or deployed
-    // For CI/CD, adjust the URL to match your deployment
-    await page.goto('http://localhost:8080/');
+    // Use environment variable or default to localhost
+    const baseURL = process.env.BASE_URL || 'http://localhost:8080';
+    await page.goto(`${baseURL}/`);
     
     // Find the home link element
     const homeLink = page.locator('a.home').first();
@@ -54,17 +54,18 @@ test.describe('Color Contrast Accessibility', () => {
       let element = el;
       let bgColor = window.getComputedStyle(element).backgroundColor;
       
-      while (bgColor === 'rgba(0, 0, 0, 0)' || bgColor === 'transparent') {
+      while (element && (bgColor === 'rgba(0, 0, 0, 0)' || bgColor === 'transparent')) {
         element = element.parentElement;
-        if (!element) break;
+        if (!element) {
+          // Fallback to white if no background is found
+          bgColor = 'rgb(255, 255, 255)';
+          break;
+        }
         bgColor = window.getComputedStyle(element).backgroundColor;
       }
       
       return bgColor;
     });
-    
-    console.log(`Foreground color: ${color}`);
-    console.log(`Background color: ${backgroundColor}`);
     
     const fgRgb = parseRgb(color);
     const bgRgb = parseRgb(backgroundColor);
@@ -73,7 +74,6 @@ test.describe('Color Contrast Accessibility', () => {
     expect(bgRgb).not.toBeNull();
     
     const contrast = contrastRatio(fgRgb, bgRgb);
-    console.log(`Contrast ratio: ${contrast.toFixed(2)}:1`);
     
     // WCAG 2.1 AA requires 4.5:1 for normal text
     expect(contrast).toBeGreaterThanOrEqual(4.5);

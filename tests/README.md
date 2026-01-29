@@ -21,6 +21,11 @@ This directory contains Playwright tests for verifying WCAG 2.1 accessibility co
    npm test
    ```
 
+   Or test against a deployed site:
+   ```bash
+   BASE_URL=https://gooseandquill.blog npm test
+   ```
+
 ## Tests
 
 ### accessibility.spec.js
@@ -29,4 +34,4 @@ Tests the color contrast ratio of the home link element to ensure it meets WCAG 
 
 This test was added to prevent regression of the fix for the accessibility issue where the home link had insufficient color contrast (3.86:1 between #8B7355 foreground and #F4EDE5 background).
 
-The fix changed the home link color to #7d674c, which provides a 4.62:1 contrast ratio.
+The fix changed the home link color to #7d674c, which provides a contrast ratio exceeding 4.5:1 (approximately 4.62:1).

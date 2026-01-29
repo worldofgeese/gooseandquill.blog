@@ -12,6 +12,7 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
+    baseURL: process.env.BASE_URL || 'http://localhost:8080',
     trace: 'on-first-retry',
   },
 
@@ -22,10 +23,11 @@ module.exports = defineConfig({
     },
   ],
 
-  /* Run your local dev server before starting the tests */
+  /* Uncomment to automatically start local dev server before tests */
   // webServer: {
-  //   command: 'raco pollen start',
+  //   command: 'cd .. && raco pollen start',
   //   url: 'http://localhost:8080',
   //   reuseExistingServer: !process.env.CI,
+  //   timeout: 120 * 1000,
   // },
 });
