@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Test - Scrollable Pre Elements</title>
+    <style>
+        pre.code {
+            overflow-x: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f5f5f5;
+            width: 300px;
+        }
+        pre.code:focus {
+            outline: 2px solid blue;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test: Scrollable Pre Elements with Keyboard Access</h1>
+    
+    <h2>Before fix (no tabindex - should fail accessibility):</h2>
+    <pre class="code">This is a very long line of code that will overflow and require horizontal scrolling to see all the content properly in the browser window</pre>
+    
+    <h2>After fix (with tabindex="0" - should pass accessibility):</h2>
+    <pre class="code" tabindex="0">This is a very long line of code that will overflow and require horizontal scrolling to see all the content properly in the browser window</pre>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Press Tab key to navigate through the page</li>
+        <li>The first pre element (without tabindex) will be skipped</li>
+        <li>The second pre element (with tabindex="0") will receive focus and show a blue outline</li>
+        <li>While focused, you can use arrow keys to scroll the content</li>
+    </ol>
+    
+    <p>The fix ensures WCAG 2.1 compliance by making scrollable regions keyboard accessible.</p>
+</body>
+</html>
