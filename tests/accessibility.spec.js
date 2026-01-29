@@ -34,14 +34,14 @@ test.describe('Accessibility Tests', () => {
     // Find all pre elements with class "code"
     const preElements = await page.locator('pre.code').all();
     
-    if (preElements.length > 0) {
-      for (const preElement of preElements) {
-        // Check if the element has tabindex="0" or is focusable
-        const tabindex = await preElement.getAttribute('tabindex');
-        const isFocusable = tabindex === '0' || tabindex === '-1';
-        
-        expect(isFocusable).toBe(true);
-      }
+    // Ensure at least one pre.code element exists
+    expect(preElements.length).toBeGreaterThan(0);
+    
+    for (const preElement of preElements) {
+      // Check if the element has tabindex="0" for keyboard accessibility
+      const tabindex = await preElement.getAttribute('tabindex');
+      
+      expect(tabindex).toBe('0');
     }
   });
 });
