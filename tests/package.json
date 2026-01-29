@@ -1,0 +1,12 @@
+{
+  "name": "gooseandquill-tests",
+  "version": "1.0.0",
+  "description": "Accessibility tests for Goose and Quill blog",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
