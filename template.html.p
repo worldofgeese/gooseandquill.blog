@@ -24,11 +24,13 @@
             </nav>
         </header>
 
+        <main>
         <article>
             ◊doc-header
             ◊doc-body-html
             ◊(->html comments)
         </article>
+        </main>
         <footer class="main">
             <ul>
                 <li><a class="rss" href="/feed.xml">RSS</a></li>
