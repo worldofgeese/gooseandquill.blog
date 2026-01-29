@@ -21,6 +21,7 @@
             </nav>
         </header>
         
+        <main>
         ◊for/s[post (latest-posts 10)]{
            <article>
            ◊(hash-ref post 'header_html)
@@ -28,6 +29,7 @@
            </article>
            <hr>
         }
+        </main>
 
         <footer class="main">
             <ul>
