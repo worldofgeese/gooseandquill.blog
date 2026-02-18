@@ -1,0 +1,17 @@
+image: quay.io/lavishleopard/gooseandquill.blog:builder
+
+pages:
+  script:
+  - mkdir -p ./public/posts/  
+  - cp -r /opt/app-root/src/posts/*.html ./public/posts/
+  - cp /opt/app-root/src/posts/*.pdf ./public/posts/
+  - cp /opt/app-root/src/feed.xml ./public/
+  - cp /opt/app-root/src/*.html ./public/
+  - cp /opt/app-root/src/styles.css ./public/
+  - cp -r /opt/app-root/src/img ./public/img/
+  - cp -r /opt/app-root/src/css ./public/css/
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

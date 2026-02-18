@@ -19,10 +19,10 @@ RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.
     adobe-source-sans-pro-fonts && \
     microdnf clean all
 
-ARG RACKET_VERSION=8.10
+ARG RACKET_VERSION=8.15
 ARG RACKET_INSTALLER_URL=https://mirror.racket-lang.org/installers/$RACKET_VERSION/racket-minimal-$RACKET_VERSION-x86_64-linux-natipkg-cs.sh
 
-RUN --mount=type=cache,target=/root/.racket \
+RUN --mount=type=cache,target=/root/.local/share/racket/$RACKET_VERSION/pkgs \
     curl --retry 5 -Ls "${RACKET_INSTALLER_URL}" > racket-install.sh && \
     echo "yes\n1\n" | sh racket-install.sh --create-dir --unix-style --dest /usr/ && \
     rm racket-install.sh
@@ -39,7 +39,7 @@ RUN --mount=type=cache,target=/root/bin \
 RUN wget -qO- "https://gist.githubusercontent.com/worldofgeese/af966eb29b147c1b13c345684a2edb81/raw/6b26bd17d85e05df3e071f44fd812a42111e539a/download_and_install.sh" | sh
 
 # Install Pollen via raco with cache mount
-RUN --mount=type=cache,target=/root/.racket \
+RUN --mount=type=cache,target=/root/.local/share/racket/$RACKET_VERSION/pkgs \
     raco pkg install --auto --skip-installed pollen
 
 # Add application sources
@@ -47,7 +47,7 @@ ADD . /opt/app-root/src
 
 # Build the blog
 WORKDIR /opt/app-root/src
-RUN --mount=type=cache,target=/root/.racket \
+RUN --mount=type=cache,target=/root/.local/share/racket/$RACKET_VERSION/pkgs \
     --mount=type=cache,target=/root/bin \
     make all && make pdfs
 
@@ -77,3 +77,4 @@ CMD ["nginx", "-g", "daemon off;"]
 
 # Expose a non-privileged port
 EXPOSE 8080
+
