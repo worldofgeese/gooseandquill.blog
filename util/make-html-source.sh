@@ -34,7 +34,7 @@ cat << EOF
           </p>
         </header>
         <div class="listing-filename">&#128196; $FILENAME</div>
-        <pre class="fullwidth code sourcebox" style="white-space: pre-wrap;">$(python3 util/encode_entities.py < $FILENAME)</pre>
+        <pre class="fullwidth code sourcebox" tabindex="0" style="white-space: pre-wrap;">$(python3 util/encode_entities.py < $FILENAME)</pre>
     </article>
 </body>
 </html>
