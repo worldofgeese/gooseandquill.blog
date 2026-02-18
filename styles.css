@@ -20,7 +20,7 @@
 body {
     background-color: #F4EDE5;
     font-family: -apple-system, 'Helvetica Neue', helvetica, sans-serif;
-    color: #8B7355;
+    color: #7E684D;
     font-size: 0.75em;
     line-height: 1.5em;
     padding: 0 1em;
@@ -112,7 +112,7 @@ a::after {
     position: relative;
     top: -0.6em;
     font-size:0.6em;
-    color: #8B7355;
+    color: #7E684D;
     font-style: normal;
     line-height: 1em;
 }
@@ -197,7 +197,7 @@ nav li:first-child a:link { padding-left: 0; }
 
 nav li a:hover {
     border-color: #5E4B3C;
-    color: #8B7355;
+    color: #7E684D;
 }
 
 footer.main {
@@ -232,7 +232,7 @@ nav li a.rss {
 
 a.rss:hover {
     border-color: #5E4B3C;
-    color: #8B7355;
+    color: #7E684D;
 }
 
 footer a.rss {
@@ -273,7 +273,7 @@ article header h1 a {
 article header h1 a:hover {
     background: #333;
     border-radius: 4px;
-    color: #8B7355;
+    color: #7E684D;
 }
 
 article header p, article header ul {
@@ -344,7 +344,7 @@ blockquote:before {
     content: '“';
     font-size: 4em;
     font-weight: bold;
-    color: #8B7355;
+    color: #7E684D;
     float: left;
     margin-left: -.7em;
     margin-top: .12em;
@@ -354,7 +354,7 @@ blockquote:before {
     content: '”';
     font-size: 4em;
     font-weight: bold;
-    color: #8B7355;
+    color: #7E684D;
     float: right;
     margin-right: -.6em;
     margin-top: -.5em;
@@ -384,7 +384,7 @@ blockquote.tweet a:link { text-decoration: none; }
 blockquote.tweet a:hover { text-decoration: underline; }
 .twRealName { font-weight: bold; }
     color: #7D7D7D;
-    color: #8B7355;
+    color: #7E684D;
 .twDecoration { display: none; }
 .twContent {
     font-size: 1.3888888888888888em;
@@ -422,7 +422,7 @@ pre.code, article table {
 div.listing-filename {
     font-family: triplicate, monospace;
     font-size: 0.75em;
-    color: #8B7355;
+    color: #7E684D;
     border: solid lightgray 1px;
     background: #eee;
     border-top-left-radius: 3px;
@@ -455,7 +455,7 @@ pre.code {
 
 .noun {
     font-style: italic;
-    color: #8B7355;
+    color: #7E684D;
 }
 
 div.comment-box {
@@ -464,7 +464,7 @@ div.comment-box {
     border-radius: 3px;
     padding: 0 0.5em;
     margin-top: 1.5em;
-    color: #8B7355;
+    color: #7E684D;
 }
 
 div.comment-box:last-of-type {
@@ -502,7 +502,7 @@ dl.topic-list {
 }
 .topic-list dt {
     font-family: triplicate;
-    color: #8B7355;
+    color: #7E684D;
     float: left;
     width: 23%;
     clear: both;
@@ -589,7 +589,7 @@ label.margin-toggle:not(.sidenote-number) {
 }
 @media (max-width: 750px) {
     label.margin-toggle {
-    color: #8B7355;
+    color: #7E684D;
     }
     label.margin-toggle:not(.sidenote-number) {
         display: inline;
