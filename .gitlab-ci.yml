@@ -1,17 +1,46 @@
-image: quay.io/lavishleopard/gooseandquill.blog:builder
+stages:
+  - build
+  - deploy
 
-pages:
+variables:
+  IMAGE: quay.io/lavishleopard/gooseandquill.blog
+  BUILDER_IMAGE: ${IMAGE}:builder
+
+build:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
   script:
-  - mkdir -p ./public/posts/  
-  - cp -r /opt/app-root/src/posts/*.html ./public/posts/
-  - cp /opt/app-root/src/posts/*.pdf ./public/posts/
-  - cp /opt/app-root/src/feed.xml ./public/
-  - cp /opt/app-root/src/*.html ./public/
-  - cp /opt/app-root/src/styles.css ./public/
-  - cp -r /opt/app-root/src/img ./public/img/
-  - cp -r /opt/app-root/src/css ./public/css/
-  artifacts:
-    paths:
-    - public
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"quay.io\":{\"username\":\"${QUAY_USERNAME}\",\"password\":\"${QUAY_PASSWORD}\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/Containerfile"
+      --destination "${BUILDER_IMAGE}"
+      --target builder
+      --cache=true
+      --cache-repo "${IMAGE}:cache"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
+
+pages:
+  stage: deploy
+  image: ${BUILDER_IMAGE}
+  script:
+    - mkdir -p ./public/posts/
+    - cp -r /opt/app-root/src/posts/*.html ./public/posts/
+    - cp /opt/app-root/src/posts/*.pdf ./public/posts/ || true
+    - cp /opt/app-root/src/feed.xml ./public/
+    - cp /opt/app-root/src/*.html ./public/
+    - cp /opt/app-root/src/styles.css ./public/
+    - cp -r /opt/app-root/src/img ./public/img/ || true
+    - cp -r /opt/app-root/src/css ./public/css/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  needs:
+    - job: build
+      optional: true
